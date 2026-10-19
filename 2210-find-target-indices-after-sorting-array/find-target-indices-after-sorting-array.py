@@ -1,11 +1,12 @@
 class Solution:
     def targetIndices(self, nums: list[int], target: int) -> list[int]:
-        target_nums = []
+        less_than = 0
+        count = 0
 
-        nums.sort()
-        n = len(nums)
-        for i in range(n):
-            if nums[i] == target:
-                target_nums.append(i)
+        for num in nums:
+            if num < target:
+                less_than += 1
+            elif num == target:
+                count += 1
 
-        return target_nums
+        return list(range(less_than, less_than + count))
